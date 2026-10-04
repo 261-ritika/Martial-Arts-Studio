@@ -220,19 +220,20 @@ button { font: inherit; }
 .about-copy { position:relative; z-index:2; }
 .about-copy h2 { font-size:clamp(46px,6.2vw,82px); }
 .about-copy p { color:#aeb6b5; font-size:14px; line-height:1.85; }
+.about-facts { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:23px 0; }
+.about-facts > div { min-width:0; padding:14px 15px; border:1px solid rgba(183,200,199,.15); background:rgba(20,29,32,.55); }
+.about-facts span { display:block; color:#899596; font:9px var(--app-font-mono); letter-spacing:.11em; text-transform:uppercase; }
+.about-facts strong { display:block; margin-top:7px; color:#f0eee8; font:700 24px/.95 'Barlow Condensed',sans-serif; }
+.about-facts small { color:#d49a5e; font-size:12px; }
 .discipline-tags { display:flex; flex-wrap:wrap; gap:8px; margin:24px 0 30px; }
 .discipline-tags span { border:1px solid rgba(183,200,199,.17); padding:8px 11px; color:#c3c9c4; font:9px var(--app-font-mono); letter-spacing:.04em; }
-.trophy-wrap { position:relative; min-height:410px; perspective:900px; }
-.trophy-frame { position:absolute; inset:0 0 28px 7%; overflow:hidden; background:#141a1e; border:1px solid rgba(218,146,73,.27); box-shadow:0 35px 85px rgba(0,0,0,.38); transform:rotateY(-5deg) rotateX(2deg); transition:transform .5s ease,border-color .4s ease; }
-.trophy-frame:hover { transform:rotateY(0) rotateX(0) translateY(-4px); border-color:rgba(225,158,90,.7); }
-.trophy-frame img { display:block; width:100%; height:100%; min-height:382px; object-fit:cover; filter:saturate(.8) contrast(1.05); }
-.trophy-frame::after { content:''; position:absolute; inset:0; background:linear-gradient(0deg,rgba(5,9,11,.74),transparent 58%),linear-gradient(115deg,rgba(22,50,57,.25),transparent 50%); }
-.trophy-label { position:absolute; z-index:2; left:10%; bottom:54px; display:flex; align-items:flex-end; gap:18px; }
-.trophy-label strong { font:700 36px/.9 'Barlow Condensed',sans-serif; text-transform:uppercase; }
-.trophy-label span { color:#d49a5e; font:9px var(--app-font-mono); letter-spacing:.14em; text-transform:uppercase; padding-bottom:3px; }
-.trophy-note { position:absolute; z-index:3; right:0; top:30px; width:205px; padding:20px; background:#d98f46; color:#11171a; box-shadow:0 14px 45px rgba(0,0,0,.3); }
-.trophy-note strong { display:block; font:800 31px/.9 'Barlow Condensed',sans-serif; text-transform:uppercase; }
-.trophy-note p { margin:9px 0 0; font-size:10px; line-height:1.5; }
+.studio-gallery { display:grid; grid-template-columns:1.2fr .8fr .8fr; grid-template-rows:repeat(2,185px); gap:10px; min-width:0; }
+.studio-photo { position:relative; min-width:0; min-height:0; margin:0; overflow:hidden; border:1px solid rgba(189,207,201,.18); background:#0b1014; }
+.studio-photo:first-child { grid-column:1; grid-row:1 / span 2; }
+.studio-photo::after { content:''; position:absolute; inset:35% 0 0; pointer-events:none; background:linear-gradient(0deg,rgba(5,9,11,.78),transparent); }
+.studio-photo img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .45s ease,filter .45s ease; }
+.studio-photo:hover img { transform:scale(1.045); filter:saturate(1.08); }
+.studio-photo figcaption { position:absolute; z-index:1; right:10px; bottom:11px; left:12px; color:#f0eee8; font:9px var(--app-font-mono); letter-spacing:.1em; line-height:1.4; text-transform:uppercase; }
 
 .coach-section { background:linear-gradient(110deg,#0b1014,#121a1e); }
 .coach-layout { display:grid; grid-template-columns:.8fr 1.2fr; gap:9vw; align-items:center; }
@@ -259,7 +260,6 @@ button { font: inherit; }
 .location-side { padding:26px 0; display:flex; flex-direction:column; justify-content:center; }
 .location-side p { max-width:410px; color:#9fa9aa; font-size:13px; line-height:1.8; }
 .contact-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
-.contact-note { margin-top:14px; color:#707d80; font-size:10px; line-height:1.6; }
 .location-art { position:relative; height:128px; margin:10px 0 24px; overflow:hidden; border-block:1px solid rgba(193,213,206,.1); background:linear-gradient(90deg,transparent,rgba(54,106,111,.12),transparent); }
 .location-art::before { content:''; position:absolute; inset:0; opacity:.5; background:repeating-linear-gradient(90deg,transparent 0 48px,rgba(167,192,185,.12) 49px 50px),linear-gradient(0deg,transparent 59%,rgba(196,209,197,.1) 60%,transparent 61%); }
 .location-art span { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:13px; height:13px; background:#e49a4e; border:4px solid rgba(228,154,78,.3); border-radius:50%; box-shadow:0 0 0 15px rgba(220,144,67,.1),0 0 32px rgba(226,148,67,.55); }
@@ -292,6 +292,8 @@ button { font: inherit; }
 .footer-col strong { display:block; margin-bottom:17px; color:#e2a15d; font:9px var(--app-font-mono); text-transform:uppercase; letter-spacing:.14em; }
 .footer-nav { display:flex; flex-direction:column; gap:11px; }
 .footer-nav a { font-size:10px; }
+.footer-col .social-link { display:flex; width:fit-content; margin:0 0 13px; }
+.footer-col > .button { margin-top:5px; }
 .footer-bottom { display:flex; justify-content:space-between; gap:20px; border-top:1px solid rgba(191,210,202,.11); padding-top:18px; color:#657174; font:9px var(--app-font-mono); letter-spacing:.05em; }
 .footer-bottom a { color:#d89a5c; }
 .mobile-only { display:none; }
@@ -352,15 +354,10 @@ button { font: inherit; }
   .manifesto-lines { padding-left:20px; }
   .manifesto-lines p { margin:13px 0; font-size:18px; }
   .about-layout,.coach-layout,.location-grid,.faq-layout { grid-template-columns:1fr; gap:40px; }
-  .about-copy { order:1; }
-  .trophy-wrap { min-height:300px; }
-  .trophy-frame { inset:0 4% 22px 0; }
-  .trophy-frame img { min-height:275px; }
-  .trophy-label { left:4%; bottom:44px; }
-  .trophy-label strong { font-size:30px; }
-  .trophy-note { width:165px; right:0; top:15px; padding:14px; }
-  .trophy-note strong { font-size:26px; }
-  .trophy-note p { font-size:9px; }
+  .about-copy { order:0; }
+  .studio-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:none; }
+  .studio-photo { aspect-ratio:1 / 1; }
+  .studio-photo:first-child { grid-column:1 / -1; grid-row:auto; aspect-ratio:1.65 / 1; }
   .coach-layout { gap:31px; }
   .coach-portrait { width: min(100%,330px); margin-inline:auto; }
   .coach-copy h2 { font-size:65px; }

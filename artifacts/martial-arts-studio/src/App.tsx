@@ -9,7 +9,10 @@ import { ArrowDownRight, ArrowRight, ArrowUpRight, Instagram, MapPin, Menu, Phon
 import './index.css';
 
 const queryClient = new QueryClient();
-const INSTAGRAM = 'https://www.instagram.com/dutta_3070/';
+const INSTAGRAM = 'https://www.instagram.com/martialartsstudio.in/';
+const INSTAGRAM_HANDLE = '@martialartsstudio.in';
+const PHONE = '+918959993070';
+const PHONE_LABEL = '+91 89599 93070';
 const ADDRESS = 'Bhadbhada Road, Main Road, near SBI Bank, near Durga Mandir, Neelbad, Bhopal, Madhya Pradesh 462044';
 const DIRECTIONS = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
 
@@ -28,13 +31,22 @@ const services = [
   { title: 'CrossFit / Bodyweight / Endurance', description: 'Improve strength, conditioning, stamina, mobility and overall athletic performance.', detail: 'A practical mix of strength, bodyweight movement, conditioning and endurance to support your training on and off the mats.', symbol: '07' },
 ];
 
+const studioPhotos = [
+  { src: '/images/studio-class.webp', alt: 'Students training together on the studio’s red and blue mats', label: 'Classes in session' },
+  { src: '/images/studio-trophy-wall.webp', alt: 'Trophies displayed inside Martial Arts Studio', label: 'Studio achievements' },
+  { src: '/images/studio-boxing.webp', alt: 'Young athlete practicing boxing at the studio', label: 'Boxing practice' },
+  { src: '/images/studio-fundamentals.webp', alt: 'Athlete working on boxing fundamentals in the studio', label: 'Build the basics' },
+  { src: '/images/studio-conditioning.webp', alt: 'Athlete doing strength and conditioning work at the studio', label: 'Strength and conditioning' },
+];
+
 const faqs = [
   ['What martial arts do you teach?', 'Boxing, Jiu-Jitsu, Kickboxing, MMA, Taekwondo, Wrestling and fitness/conditioning training.'],
   ['Do I need previous martial arts experience?', 'No. Beginners can start with the fundamentals and gradually progress.'],
   ['Do you provide fitness and conditioning training?', 'Yes. Training includes CrossFit-style conditioning, bodyweight exercises, endurance and general athletic development.'],
-  ['Can beginners join?', 'Yes. Training can be adapted according to experience and fitness level.'],
+  ['What is the training time?', 'Training runs from 5:00 to 6:30.'],
+  ['What is the monthly fee?', 'The fee is ₹1,000 per month for an individual.'],
   ['Where is the studio located?', `${ADDRESS}.`],
-  ['How can I contact the studio?', 'Use the contact section or Instagram link provided on the website.'],
+  ['How can I contact the studio?', `Call ${PHONE_LABEL} or message ${INSTAGRAM_HANDLE} on Instagram.`],
 ];
 
 function Brand() {
@@ -110,12 +122,12 @@ function Hero() {
     <section className="hero" id="home" ref={heroRef} aria-labelledby="hero-title">
       <div className="hero-copy">
         <div className="eyebrow">Neelbad · Bhopal · Training ground</div>
-        <h1 id="hero-title"><span>Train.</span><span>Fight.</span><span>Evolve.</span></h1>
+        <h1 id="hero-title"><span>Martial Arts</span><span>Studio</span></h1>
         <p className="hero-lead">Train your body. Sharpen your mind. Build your discipline.</p>
         <p className="hero-desc">Professional martial arts and fitness training in Neelbad, Bhopal — from striking and grappling to strength, endurance and conditioning.</p>
         <div className="hero-actions">
           <a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noreferrer">Start Training <ArrowUpRight size={15} /></a>
-          <a className="button button-ghost" href="#training">Explore Training <ArrowDownRight size={15} /></a>
+          <a className="button button-ghost" href="#about">Explore Studio <ArrowDownRight size={15} /></a>
         </div>
       </div>
       <div className="fighter-stage">
@@ -216,20 +228,25 @@ function About() {
     <section className="section about-section" id="about" aria-labelledby="about-title">
       <div className="about-layout">
         <div className="about-copy">
-          <span className="section-kicker">A place to put in the work</span>
+          <span className="section-kicker">Explore the studio</span>
           <h2 id="about-title">More than training. It's a discipline.</h2>
           <p>Martial Arts Studio brings martial arts together with strength, conditioning, endurance and fitness. A neighborhood training ground in Neelbad for learning skills, building a stronger body and showing up with purpose.</p>
+          <div className="about-facts" aria-label="Training time and fees">
+            <div><span>Training time</span><strong>5:00–6:30</strong></div>
+            <div><span>Individual fee</span><strong>₹1,000 <small>/ month</small></strong></div>
+          </div>
           <div className="discipline-tags" aria-label="Training offered">
             {['Boxing', 'Jiu-Jitsu', 'Kickboxing', 'MMA', 'Taekwondo', 'Wrestling', 'CrossFit', 'Bodyweight', 'Endurance'].map((item) => <span key={item}>{item}</span>)}
           </div>
           <a className="button button-ghost" href="#contact">Find the studio <ArrowDownRight size={14} /></a>
         </div>
-        <div className="trophy-wrap">
-          <div className="trophy-frame">
-            <img src="/images/studio-trophies.jpg" alt="Trophy and achievement display inside Martial Arts Studio" loading="lazy" />
-          </div>
-          <div className="trophy-label"><strong>Training builds<br />champions.</strong><span>Earned, never given</span></div>
-          <div className="trophy-note"><strong>Every round<br />moves you forward.</strong><p>Every session is another step toward becoming stronger, faster and more disciplined.</p></div>
+        <div className="studio-gallery" aria-label="Photos of Martial Arts Studio">
+          {studioPhotos.map((photo) => (
+            <figure className="studio-photo" key={photo.src}>
+              <img src={photo.src} alt={photo.alt} decoding="async" />
+              <figcaption>{photo.label}</figcaption>
+            </figure>
+          ))}
         </div>
       </div>
     </section>
@@ -250,7 +267,7 @@ function Coach() {
           <div className="coach-name">Coach</div>
           <div className="coach-role">Martial Arts Coach</div>
           <p>Learn with focused guidance, sound fundamentals and steady progression. Whether you're taking your first step or refining your game, training starts with showing up.</p>
-          <a className="social-link" href={INSTAGRAM} target="_blank" rel="noreferrer"><Instagram size={16} /> @dutta_3070 <ArrowUpRight size={14} /></a>
+          <a className="social-link" href={INSTAGRAM} target="_blank" rel="noreferrer"><Instagram size={16} /> Studio Instagram · {INSTAGRAM_HANDLE} <ArrowUpRight size={14} /></a>
           <div><a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noreferrer">Train with us <ArrowUpRight size={15} /></a></div>
         </div>
       </div>
@@ -259,7 +276,6 @@ function Coach() {
 }
 
 function Contact() {
-  const [callPrompt, setCallPrompt] = useState(false);
   return (
     <section className="section location-section" id="contact" aria-labelledby="contact-title">
       <div className="section-head">
@@ -275,13 +291,12 @@ function Contact() {
         </article>
         <div className="location-side">
           <div className="location-art" aria-hidden="true"><span /></div>
-          <p>Step into a serious training space for striking, grappling, strength and conditioning. Get directions or reach out directly on Instagram.</p>
+            <p>Step into a serious training space for striking, grappling, strength and conditioning. Call the studio or find us on Instagram.</p>
           <div className="contact-actions">
             <a className="button button-primary" href={DIRECTIONS} target="_blank" rel="noreferrer">Get directions <ArrowUpRight size={14} /></a>
-            <button className="button button-ghost" type="button" aria-label="Call the studio (phone number not provided)" aria-describedby="contact-note" onClick={() => setCallPrompt(true)}><Phone size={14} /> Call</button>
-            <a className="button button-ghost" href={INSTAGRAM} target="_blank" rel="noreferrer"><Instagram size={14} /> Instagram</a>
+              <a className="button button-ghost" href={`tel:${PHONE}`} aria-label={`Call Martial Arts Studio at ${PHONE_LABEL}`}><Phone size={14} /> {PHONE_LABEL}</a>
+              <a className="button button-ghost" href={INSTAGRAM} target="_blank" rel="noreferrer"><Instagram size={14} /> {INSTAGRAM_HANDLE}</a>
           </div>
-          <p className="contact-note" id="contact-note" aria-live="polite">{callPrompt ? 'A phone number has not been provided. Message the studio on Instagram instead.' : 'Phone number not listed. Use Instagram to contact the studio.'}</p>
         </div>
       </div>
     </section>
@@ -354,7 +369,8 @@ function Footer() {
         <div className="footer-col">
           <strong>Find the studio</strong>
           <p className="footer-description">Neelbad, Bhopal<br />Madhya Pradesh 462044</p>
-          <a className="social-link" href={INSTAGRAM} target="_blank" rel="noreferrer"><Instagram size={14} /> @dutta_3070</a>
+          <a className="social-link" href={INSTAGRAM} target="_blank" rel="noreferrer"><Instagram size={14} /> {INSTAGRAM_HANDLE}</a>
+          <a className="social-link" href={`tel:${PHONE}`}><Phone size={14} /> {PHONE_LABEL}</a>
           <a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noreferrer">Start Training <ArrowUpRight size={13} /></a>
         </div>
       </div>
