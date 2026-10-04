@@ -1,0 +1,803 @@
+Create a premium, highly interactive, modern 3D website for a martial arts and fitness studio called **“Martial Arts Studio”**.
+
+The website should NOT look like a generic gym template. It should feel like a cinematic martial-arts experience — energetic, athletic, powerful, immersive, futuristic, and professional.
+
+## 1. CORE VISUAL CONCEPT
+
+The central concept of the website is:
+
+**“Train. Fight. Evolve.”**
+
+The entire website should visually communicate movement, discipline, strength, speed, martial arts, fitness, and progression.
+
+Use a dark, premium athletic aesthetic with:
+
+* Black / charcoal / deep navy backgrounds
+* White typography
+* Subtle electric blue/cyan accents
+* Occasional warm highlights
+* Glassmorphism panels
+* Metallic elements
+* Soft glowing lights
+* Dynamic shadows
+* Depth and layered 3D elements
+
+Do NOT make it look childish, cartoonish, or like a basic fitness website.
+
+The design should feel closer to a premium sports brand / martial arts game interface / cinematic training studio.
+
+---
+
+# 2. IMPORTANT — USE THE PROVIDED IMAGES
+
+I have provided:
+
+1. The Martial Arts Studio logo.
+2. A photo of the studio's trophy/display area.
+
+Use these uploaded images in the website.
+
+The uploaded Martial Arts Studio logo should be prominently used in:
+
+* Navbar
+* Hero section
+* About section
+* Footer
+
+Do not recreate the logo unnecessarily. Preserve the provided logo.
+
+The trophy/display image should be used as a visual element in the studio/about/training section, preferably with a subtle 3D/parallax treatment.
+
+I will provide the coach's photo separately if needed.
+
+---
+
+# 3. HERO / LANDING EXPERIENCE
+
+The landing page must immediately feel impressive.
+
+Navbar:
+
+* Martial Arts Studio logo
+* Home
+* Training
+* About
+* Coach
+* Contact
+* FAQ
+* A highlighted CTA button: **“Start Training”**
+
+Hero content:
+
+**MARTIAL ARTS STUDIO**
+
+Small supporting text:
+
+**Train your body. Sharpen your mind. Build your discipline.**
+
+Another short description:
+
+**Professional martial arts and fitness training in Neelbad, Bhopal — from striking and grappling to strength, endurance and conditioning.**
+
+Primary button:
+**Start Training**
+
+Secondary button:
+**Explore Training**
+
+---
+
+# 4. HERO ANIMATION — VERY IMPORTANT
+
+The hero should contain a **3D/animated martial artist character**.
+
+The character should look like a realistic athletic martial artist, NOT a cartoon.
+
+The character can be:
+
+* Wearing a modern martial arts training outfit
+* In a fighting stance
+* Athletic and dynamic
+* Slightly stylized but realistic
+
+The most important interaction:
+
+When the user scrolls vertically down the page, the character should perform a **roundhouse kick**.
+
+The kick should be synchronized with scrolling.
+
+For example:
+
+At the beginning:
+Character is standing in fighting stance.
+
+As the user scrolls:
+
+1. Character prepares
+2. Body rotates
+3. Leg rises
+4. Roundhouse kick extends
+5. The kick visually hits / passes through a floating information card
+6. The card moves away / breaks apart / transitions into the next section
+7. The character returns to stance or transitions out
+
+The effect should feel like the martial artist is physically interacting with the website.
+
+Do NOT make the animation random.
+
+It should be tied to scroll progress.
+
+Use smooth scroll-based animation with technologies such as:
+
+* GSAP + ScrollTrigger
+* Three.js
+* React Three Fiber if using React
+* CSS 3D transforms where appropriate
+
+If a fully realistic 3D character cannot be implemented without external assets, create a visually convincing alternative using a high-quality 3D/stylized martial artist model or layered silhouette animation.
+
+---
+
+# 5. SCROLL STORYTELLING
+
+The website should tell a story while scrolling.
+
+Instead of simply stacking sections vertically, create transitions between sections.
+
+Example:
+
+HERO
+↓
+Character kicks
+↓
+Training categories appear
+↓
+Cards rotate / slide into position
+↓
+Character or background transitions
+↓
+Motivation section
+↓
+Coach section
+↓
+Studio section
+↓
+Contact
+↓
+FAQ
+
+The transitions should feel continuous.
+
+Avoid abrupt section changes.
+
+Use:
+
+* Parallax
+* Scroll-triggered animations
+* 3D rotations
+* Scale transitions
+* Floating elements
+* Blur-to-focus
+* Perspective
+* Smooth card movement
+* Background movement
+* Light trails
+* Particle effects
+
+---
+
+# 6. GLOBAL ANIMATED BACKGROUND
+
+IMPORTANT:
+
+The animated background should NOT exist only on the landing page.
+
+The entire website should feel alive.
+
+Every major page/section should have a subtle animated environment.
+
+Possible effects:
+
+* Moving particles
+* Floating dust
+* Very subtle smoke/fog
+* Animated gradients
+* Moving light streaks
+* Slow geometric shapes
+* Grid/perspective lines
+* Glowing particles
+* Very subtle energy waves
+
+Keep the animation sophisticated.
+
+Do NOT make the background distracting.
+
+The content must remain easy to read.
+
+---
+
+# 7. TRAINING / SERVICES SECTION
+
+Create a highly interactive section titled:
+
+**TRAIN. FIGHT. EVOLVE.**
+
+Subtitle:
+
+**One studio. Multiple disciplines. One goal — become stronger than yesterday.**
+
+Show the following services as large interactive 3D cards:
+
+### Boxing
+
+Build speed, precision, footwork and striking fundamentals.
+
+### Jiu-Jitsu
+
+Learn grappling, control, technique and ground fighting.
+
+### Kickboxing
+
+Combine powerful punches, kicks, movement and conditioning.
+
+### MMA
+
+Train across striking, grappling and mixed martial arts fundamentals.
+
+### Taekwondo
+
+Develop kicking technique, flexibility, speed, discipline and control.
+
+### Wrestling
+
+Build strength, balance, takedown ability and explosive movement.
+
+### CrossFit / Bodyweight / Endurance
+
+Improve strength, conditioning, stamina, mobility and overall athletic performance.
+
+Each card should have:
+
+* Large title
+* Short description
+* Minimal icon/visual
+* Hover animation
+* 3D tilt
+* Glow
+* Depth
+* Subtle movement
+
+When hovering over a card, it should feel physically 3D.
+
+On mobile, cards should remain smooth and usable.
+
+---
+
+# 8. INTERACTIVE TRAINING CARDS
+
+Make the service cards part of the website's storytelling.
+
+For example:
+
+When the user scrolls into the services section:
+
+* Cards enter from different directions.
+* Some rotate slightly.
+* Cards settle into a 3D grid.
+* Hovering over a card makes it come forward.
+* Other cards slightly move backward.
+* Clicking a service opens an expanded panel with more information.
+
+Use realistic motion and easing.
+
+Avoid excessive animations that make the site feel slow.
+
+---
+
+# 9. MOTIVATION SECTION
+
+Create a cinematic motivational section.
+
+Large typography:
+
+**“YOUR LIMITS ARE NOT YOUR DESTINATION.”**
+
+Then animate smaller lines into view:
+
+**Discipline over excuses.**
+
+**Progress over perfection.**
+
+**Strength through consistency.**
+
+**Train with purpose.**
+
+The background should have:
+
+* Dark cinematic atmosphere
+* Moving light
+* Subtle particles
+* Martial arts silhouette / abstract fighter imagery
+* Slow parallax
+
+The typography should feel powerful and premium.
+
+---
+
+# 10. ABOUT THE STUDIO
+
+Create an “About the Studio” section.
+
+Heading:
+
+**MORE THAN TRAINING. IT'S A DISCIPLINE.**
+
+Explain that Martial Arts Studio combines martial arts training with strength, conditioning, endurance and fitness.
+
+Mention that the studio provides training in:
+
+* Boxing
+* Jiu-Jitsu
+* Kickboxing
+* MMA
+* Taekwondo
+* Wrestling
+* CrossFit
+* Bodyweight training
+* Endurance training
+
+Use the uploaded studio/trophy image here.
+
+Create a layered image composition where:
+
+* The image has rounded corners
+* It has subtle depth
+* It slightly moves with scrolling
+* A glowing border/light effect appears on hover
+* Text overlaps the image slightly
+
+---
+
+# 11. TROPHY / ACHIEVEMENT VISUAL
+
+Use the provided trophy/display image to create a section that communicates achievement.
+
+Possible heading:
+
+**TRAINING BUILDS CHAMPIONS.**
+
+Supporting text:
+
+**Every session is another step toward becoming stronger, faster and more disciplined.**
+
+The trophy image should have a subtle parallax animation.
+
+Do not distort the original image.
+
+---
+
+# 12. COACH SECTION
+
+Create a premium “Meet the Coach” section.
+
+Heading:
+
+**MEET YOUR COACH**
+
+Information:
+
+**Coach**
+
+Role:
+**Martial Arts Coach**
+
+Instagram:
+**@dutta_3070**
+
+The coach should be presented as a professional martial arts instructor.
+
+If the coach image is provided later:
+
+* Use it as the main portrait
+* Add cinematic lighting
+* Add subtle background particles
+* Add depth/parallax
+* Add a metallic/glowing frame
+* Do not excessively edit or distort the person's face
+
+Include a CTA:
+
+**Train With Us**
+
+---
+
+# 13. LOCATION / CONTACT SECTION
+
+Create a section titled:
+
+**FIND YOUR FIGHT. FIND YOUR PLACE.**
+
+Address:
+
+**Bhadbhada Road, Main Road, near SBI Bank, near Durga Mandir, Neelbad, Bhopal, Madhya Pradesh 462044**
+
+Show the location in a visually appealing location card.
+
+Include:
+
+**Martial Arts Studio**
+
+Location:
+**Neelbad, Bhopal**
+
+Buttons:
+
+* Get Directions
+* Call
+* Instagram
+
+The Google Maps/location button should open the appropriate map/location link.
+
+Do not expose unnecessary personal information.
+
+---
+
+# 14. CONTACT CTA
+
+Create a strong final CTA before the FAQ section:
+
+**READY TO START TRAINING?**
+
+Small text:
+
+**Your first step is simple. Show up.**
+
+Buttons:
+
+**Start Training**
+
+**Contact Us**
+
+Make this section visually dramatic with:
+
+* Large typography
+* Moving background
+* 3D depth
+* Light streaks
+* Subtle martial artist silhouette
+* Animated button hover
+
+---
+
+# 15. FAQ SECTION
+
+Create an expandable FAQ section.
+
+Heading:
+
+**FREQUENTLY ASKED QUESTIONS**
+
+Questions should include:
+
+**What martial arts do you teach?**
+
+Answer:
+Boxing, Jiu-Jitsu, Kickboxing, MMA, Taekwondo, Wrestling and fitness/conditioning training.
+
+**Do I need previous martial arts experience?**
+
+Answer:
+No. Beginners can start with the fundamentals and gradually progress.
+
+**Do you provide fitness and conditioning training?**
+
+Answer:
+Yes. Training includes CrossFit-style conditioning, bodyweight exercises, endurance and general athletic development.
+
+**Can beginners join?**
+
+Answer:
+Yes. Training can be adapted according to experience and fitness level.
+
+**Where is the studio located?**
+
+Answer:
+Bhadbhada Road, Main Road, near SBI Bank, near Durga Mandir, Neelbad, Bhopal, Madhya Pradesh 462044.
+
+**How can I contact the studio?**
+
+Answer:
+Use the contact section or Instagram link provided on the website.
+
+FAQ interactions should have smooth accordion animations.
+
+---
+
+# 16. FOOTER
+
+Create a premium footer.
+
+Include:
+
+* Martial Arts Studio logo
+* Martial Arts Studio
+* Short description
+* Navigation links
+* Training links
+* Instagram: @dutta_3070
+* Location
+* Contact CTA
+
+Footer should have subtle moving particles/background.
+
+---
+
+# 17. NAVIGATION
+
+The navbar should remain clean and premium.
+
+Desktop:
+Logo on left.
+
+Navigation:
+Home
+Training
+About
+Coach
+Contact
+FAQ
+
+CTA:
+**Start Training**
+
+On scroll:
+
+* Navbar becomes slightly transparent/glass-like
+* Background blur increases
+* Logo remains visible
+* Navigation remains readable
+
+Mobile:
+Use a smooth animated hamburger menu.
+
+---
+
+# 18. 3D DESIGN LANGUAGE
+
+The website should use genuine depth.
+
+Use:
+
+* Perspective
+* Layered cards
+* 3D transforms
+* Shadows
+* Depth of field
+* Floating objects
+* Parallax
+* Glass panels
+* Metallic surfaces
+* Light reflections
+
+However, do NOT make every object rotate constantly.
+
+Motion should have purpose.
+
+---
+
+# 19. PAGE TRANSITIONS
+
+If multiple pages/routes are used, make transitions cinematic.
+
+Example:
+
+When moving from Home → Training:
+
+* Current page slightly zooms out
+* Background shifts
+* New section/page moves forward
+* Content fades/flies into position
+
+Maintain the same animated environment across the entire website.
+
+Prefer a smooth single-page scrolling experience if that creates a better result.
+
+---
+
+# 20. RESPONSIVENESS
+
+The website must work properly on:
+
+* Desktop
+* Laptop
+* Tablet
+* Mobile
+
+On mobile:
+
+* Reduce heavy 3D effects where necessary
+* Keep animations smooth
+* Make buttons easy to tap
+* Do not allow horizontal scrolling
+* Keep text readable
+* Keep the martial artist animation visually impressive but performance-friendly
+
+---
+
+# 21. PERFORMANCE
+
+The website should feel premium but remain fast.
+
+Use:
+
+* Lazy loading
+* Optimized images
+* GPU-friendly animations
+* requestAnimationFrame where appropriate
+* Efficient Three.js rendering
+* Reduced effects on low-power/mobile devices
+
+Avoid unnecessary libraries.
+
+---
+
+# 22. TECHNOLOGY
+
+Preferred implementation:
+
+**React + Vite**
+
+Use:
+
+* Three.js / React Three Fiber for 3D
+* GSAP + ScrollTrigger for scroll animations
+* CSS for visual styling
+* Framer Motion if useful
+* Lucide icons or another clean icon library
+
+Keep the project organized and maintainable.
+
+Separate:
+
+* Components
+* Styles
+* Assets
+* Animation logic
+* Data/content
+
+Do not put everything into one enormous file.
+
+---
+
+# 23. INTERACTION DETAILS
+
+Add small premium interactions throughout the site:
+
+Buttons:
+
+* Magnetic hover effect
+* Glow
+* Slight scale
+* Smooth transition
+
+Cards:
+
+* 3D tilt
+* Depth
+* Hover glow
+* Slight movement
+
+Images:
+
+* Parallax
+* Slight scale on hover
+
+Text:
+
+* Reveal animations
+* Character/word stagger where appropriate
+
+Cursor:
+On desktop, create a subtle custom cursor effect if it improves the design.
+
+Do not use an annoying oversized cursor.
+
+---
+
+# 24. VISUAL HIERARCHY
+
+The website must immediately communicate:
+
+1. Martial Arts
+2. Fitness
+3. Discipline
+4. Professional coaching
+5. Multiple training disciplines
+6. Real physical studio
+7. Location/contact information
+
+Do not let animations overpower the actual information.
+
+---
+
+# 25. CONTENT STYLE
+
+Use confident, concise copy.
+
+Avoid generic phrases like:
+“Welcome to the best gym in the world.”
+
+Instead use powerful but believable language.
+
+Tone:
+
+* Strong
+* Motivational
+* Professional
+* Modern
+* Athletic
+* Disciplined
+
+---
+
+# 26. IMPORTANT ANIMATION RULE
+
+The website's signature feature should be:
+
+**THE MARTIAL ARTIST INTERACTS WITH THE WEBSITE.**
+
+The character should not simply sit in the background.
+
+Use the character as a storytelling device.
+
+For example:
+
+Hero:
+Fighter prepares.
+
+Scroll:
+Fighter performs roundhouse kick.
+
+Kick:
+A training card is hit.
+
+Next:
+The training/service section appears.
+
+Later:
+The fighter transitions into another stance.
+
+Final CTA:
+Fighter returns to a strong stance beside the “Start Training” button.
+
+This should make the website memorable.
+
+---
+
+# 27. FINAL DESIGN GOAL
+
+The finished website should feel like:
+
+**A premium martial arts training experience combined with a futuristic interactive 3D website.**
+
+It should look impressive enough for:
+
+* A real martial arts studio
+* Instagram sharing
+* Professional portfolio
+* Client presentation
+* Student web-development portfolio
+
+Most importantly:
+
+**DO NOT BUILD A BASIC TEMPLATE.**
+
+Build an experience.
+
+The first 5 seconds should make the visitor think:
+
+**“This is not a normal gym website.”**
+
+Use the provided Martial Arts Studio logo and uploaded studio image as real assets.
+
+Ensure all animations are smooth, purposeful and responsive.

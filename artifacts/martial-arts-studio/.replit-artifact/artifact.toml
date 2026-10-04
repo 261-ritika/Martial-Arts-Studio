@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Martial Arts Studio"
+description = "A cinematic single-page website for Martial Arts Studio in Neelbad, Bhopal, showcasing its training disciplines, coach, studio identity, and ways to get started."
+version = "1.0.0"
+id = "artifacts/martial-arts-studio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21063
+
+[services.development]
+run = "pnpm --filter @workspace/martial-arts-studio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/martial-arts-studio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/martial-arts-studio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21063"
+BASE_PATH = "/"

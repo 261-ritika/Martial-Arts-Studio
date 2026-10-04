@@ -1,0 +1,412 @@
+import { useEffect, useRef, useState, type PointerEvent, type ReactNode } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ErrorBoundary } from '@/components/error-boundary';
+import { Toaster } from '@/components/ui/toaster';
+import { TooltipProvider } from '@/components/ui/tooltip';
+import NotFound from '@/pages/not-found';
+import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
+import { ArrowDownRight, ArrowRight, ArrowUpRight, Instagram, MapPin, Menu, Phone, X } from 'lucide-react';
+import './index.css';
+
+const queryClient = new QueryClient();
+const INSTAGRAM = 'https://www.instagram.com/dutta_3070/';
+const ADDRESS = 'Bhadbhada Road, Main Road, near SBI Bank, near Durga Mandir, Neelbad, Bhopal, Madhya Pradesh 462044';
+const DIRECTIONS = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
+
+const navItems = [
+  ['Home', '#home'], ['Training', '#training'], ['About', '#about'],
+  ['Coach', '#coach'], ['Contact', '#contact'], ['FAQ', '#faq'],
+];
+
+const services = [
+  { title: 'Boxing', description: 'Build speed, precision, footwork and striking fundamentals.', detail: 'Sharpen the basics through focused combinations, movement, defence and conditioning. Start at your level and build with every round.', symbol: '01' },
+  { title: 'Jiu-Jitsu', description: 'Learn grappling, control, technique and ground fighting.', detail: 'Practice positional control, escapes and submissions with technique first. Learn to stay composed and solve problems under pressure.', symbol: '02' },
+  { title: 'Kickboxing', description: 'Combine powerful punches, kicks, movement and conditioning.', detail: 'Connect hands and legs with timing, balance and clean combinations. Sessions pair skill work with athletic conditioning.', symbol: '03' },
+  { title: 'MMA', description: 'Train across striking, grappling and mixed martial arts fundamentals.', detail: 'Build a rounded foundation across striking, takedowns and ground work. Progress through fundamentals at a pace that makes sense.', symbol: '04' },
+  { title: 'Taekwondo', description: 'Develop kicking technique, flexibility, speed, discipline and control.', detail: 'Develop precise kicking mechanics, mobility, balance and control through disciplined practice.', symbol: '05' },
+  { title: 'Wrestling', description: 'Build strength, balance, takedown ability and explosive movement.', detail: 'Work on stance, level changes, takedowns and positional control while building full-body strength and confidence.', symbol: '06' },
+  { title: 'CrossFit / Bodyweight / Endurance', description: 'Improve strength, conditioning, stamina, mobility and overall athletic performance.', detail: 'A practical mix of strength, bodyweight movement, conditioning and endurance to support your training on and off the mats.', symbol: '07' },
+];
+
+const faqs = [
+  ['What martial arts do you teach?', 'Boxing, Jiu-Jitsu, Kickboxing, MMA, Taekwondo, Wrestling and fitness/conditioning training.'],
+  ['Do I need previous martial arts experience?', 'No. Beginners can start with the fundamentals and gradually progress.'],
+  ['Do you provide fitness and conditioning training?', 'Yes. Training includes CrossFit-style conditioning, bodyweight exercises, endurance and general athletic development.'],
+  ['Can beginners join?', 'Yes. Training can be adapted according to experience and fitness level.'],
+  ['Where is the studio located?', `${ADDRESS}.`],
+  ['How can I contact the studio?', 'Use the contact section or Instagram link provided on the website.'],
+];
+
+function Brand() {
+  return (
+    <a className="brand" href="#home" aria-label="Martial Arts Studio home">
+      <span className="brand-mark" aria-hidden="true">MAS</span>
+      <span className="brand-copy"><strong>Martial Arts Studio</strong><small>Neelbad · Bhopal</small></span>
+    </a>
+  );
+}
+
+function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
+  return (
+    <header className="site-header">
+      <Brand />
+      <nav className="desktop-nav" aria-label="Main navigation">
+        {navItems.map(([label, href]) => <a key={label} href={href}>{label}</a>)}
+      </nav>
+      <a className="button button-primary header-action" href={INSTAGRAM} target="_blank" rel="noreferrer">
+        Start Training <ArrowUpRight size={14} />
+      </a>
+      <button className="mobile-toggle" type="button" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
+        {menuOpen ? <X size={19} /> : <Menu size={19} />}
+      </button>
+      <nav className={`mobile-menu ${menuOpen ? 'is-open' : ''}`} aria-label="Mobile navigation" aria-hidden={!menuOpen}>
+        {navItems.map(([label, href]) => <a key={label} href={href} onClick={closeMenu}>{label}</a>)}
+        <a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noreferrer" onClick={closeMenu}>Start Training <ArrowUpRight size={14} /></a>
+      </nav>
+    </header>
+  );
+}
+
+function Hero() {
+  const heroRef = useRef<HTMLElement>(null);
+  const [kickActive, setKickActive] = useState(false);
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let frame = 0;
+    const update = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const hero = heroRef.current;
+        if (!hero) return;
+        const rect = hero.getBoundingClientRect();
+        const progress = Math.max(0, Math.min(1, -rect.top / (window.innerHeight * 0.82)));
+        const kick = Math.max(0, Math.min(1, (progress - 0.16) / 0.37, (0.88 - progress) / 0.22));
+        const force = Math.max(0, kick);
+        hero.style.setProperty('--standing-opacity', String(1 - force));
+        hero.style.setProperty('--kick-opacity', String(force));
+        hero.style.setProperty('--fighter-x', `${force * 16}px`);
+        hero.style.setProperty('--fighter-y', `${-force * 3}px`);
+        hero.style.setProperty('--fighter-scale', String(1 + force * 0.045));
+        hero.style.setProperty('--card-x', `${force * 118}px`);
+        hero.style.setProperty('--card-y', `${-force * 27}px`);
+        hero.style.setProperty('--card-r', `${force * 8}deg`);
+        setKickActive(force > 0.63);
+      });
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
+  }, []);
+
+  return (
+    <section className="hero" id="home" ref={heroRef} aria-labelledby="hero-title">
+      <div className="hero-copy">
+        <div className="eyebrow">Neelbad · Bhopal · Training ground</div>
+        <h1 id="hero-title"><span>Train.</span><span>Fight.</span><span>Evolve.</span></h1>
+        <p className="hero-lead">Train your body. Sharpen your mind. Build your discipline.</p>
+        <p className="hero-desc">Professional martial arts and fitness training in Neelbad, Bhopal — from striking and grappling to strength, endurance and conditioning.</p>
+        <div className="hero-actions">
+          <a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noreferrer">Start Training <ArrowUpRight size={15} /></a>
+          <a className="button button-ghost" href="#training">Explore Training <ArrowDownRight size={15} /></a>
+        </div>
+      </div>
+      <div className="fighter-stage">
+        <div className="fighter-halo" />
+        <img className="fighter-img fighter-standing" src="/images/fighter-standing.png" alt="Martial artist standing in a focused fighting stance" />
+        <img className="fighter-img fighter-kick" src="/images/fighter-kick.png" alt="Martial artist extending a full roundhouse kick" />
+      </div>
+      <aside className={`hero-card ${kickActive ? 'is-hit' : ''}`} aria-live="polite">
+        <small>{kickActive ? 'Impact / 01' : 'Training note / 01'}</small>
+        <strong>{kickActive ? 'Make it count.' : 'Earn every round.'}</strong>
+        <p>{kickActive ? 'Commit to the movement. Let the work speak.' : 'Technique first. Consistency always.'}</p>
+        <span className="card-line" />
+        <small>Move with purpose</small>
+      </aside>
+      <div className="hero-caption">Discipline begins here</div>
+      <div className="hero-index"><strong>01</strong> / 07 &nbsp; Neelbad, Bhopal</div>
+    </section>
+  );
+}
+
+function ServiceCard({ service, index }: { service: (typeof services)[number]; index: number }) {
+  const [expanded, setExpanded] = useState(false);
+  const cardRef = useRef<HTMLButtonElement>(null);
+  const onPointerMove = (event: PointerEvent<HTMLButtonElement>) => {
+    if (event.pointerType !== 'mouse' || !cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = (event.clientY - rect.top) / rect.height;
+    cardRef.current.style.setProperty('--my', `${(x - 0.5) * 4}deg`);
+    cardRef.current.style.setProperty('--mx', `${(0.5 - y) * 4}deg`);
+  };
+  const resetTilt = () => {
+    cardRef.current?.style.setProperty('--mx', '0deg');
+    cardRef.current?.style.setProperty('--my', '0deg');
+  };
+  return (
+    <button
+      className="service-card"
+      type="button"
+      ref={cardRef}
+      aria-expanded={expanded}
+      aria-controls={`service-detail-${index}`}
+      onClick={() => setExpanded((value) => !value)}
+      onPointerMove={onPointerMove}
+      onPointerLeave={resetTilt}
+    >
+      <div className="service-top"><span className="service-no">DISCIPLINE / {service.symbol}</span><span className="service-symbol" aria-hidden="true"><ArrowUpRight size={17} /></span></div>
+      <h3>{service.title}</h3>
+      <p>{service.description}</p>
+      <div className="service-detail" id={`service-detail-${index}`}><div>{service.detail}</div></div>
+      <span className="service-more">{expanded ? 'Close details' : 'Explore discipline'} <ArrowRight size={13} /></span>
+    </button>
+  );
+}
+
+function Training() {
+  return (
+    <>
+      <section className="section training-section" id="training" aria-labelledby="training-title">
+        <div className="training-top">
+          <div className="section-head">
+            <span className="section-kicker">Find your discipline</span>
+            <h2 id="training-title">Train. Fight. Evolve.</h2>
+            <p className="section-intro">One studio. Multiple disciplines. One goal — become stronger than yesterday.</p>
+          </div>
+          <p className="discipline-count"><strong>07</strong> ways to put in the work</p>
+        </div>
+        <div className="service-grid">
+          {services.map((service, index) => <ServiceCard key={service.title} service={service} index={index} />)}
+        </div>
+      </section>
+      <div className="kick-transition" aria-hidden="true"><span>01 / Make the first move</span><i /><span>Skill · Strength · Resolve</span></div>
+    </>
+  );
+}
+
+function Manifesto() {
+  return (
+    <section className="section manifesto" aria-label="Training philosophy">
+      <div className="manifesto-content">
+        <div>
+          <span className="section-kicker">The work, every day</span>
+          <h2>Your limits are not your <em>destination.</em></h2>
+        </div>
+        <div className="manifesto-lines">
+          <p>Discipline over excuses.</p>
+          <p>Progress over perfection.</p>
+          <p>Strength through consistency.</p>
+          <p>Train with purpose.</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function About() {
+  return (
+    <section className="section about-section" id="about" aria-labelledby="about-title">
+      <div className="about-layout">
+        <div className="about-copy">
+          <span className="section-kicker">A place to put in the work</span>
+          <h2 id="about-title">More than training. It's a discipline.</h2>
+          <p>Martial Arts Studio brings martial arts together with strength, conditioning, endurance and fitness. A neighborhood training ground in Neelbad for learning skills, building a stronger body and showing up with purpose.</p>
+          <div className="discipline-tags" aria-label="Training offered">
+            {['Boxing', 'Jiu-Jitsu', 'Kickboxing', 'MMA', 'Taekwondo', 'Wrestling', 'CrossFit', 'Bodyweight', 'Endurance'].map((item) => <span key={item}>{item}</span>)}
+          </div>
+          <a className="button button-ghost" href="#contact">Find the studio <ArrowDownRight size={14} /></a>
+        </div>
+        <div className="trophy-wrap">
+          <div className="trophy-frame">
+            <img src="/images/studio-trophies.jpg" alt="Trophy and achievement display inside Martial Arts Studio" loading="lazy" />
+          </div>
+          <div className="trophy-label"><strong>Training builds<br />champions.</strong><span>Earned, never given</span></div>
+          <div className="trophy-note"><strong>Every round<br />moves you forward.</strong><p>Every session is another step toward becoming stronger, faster and more disciplined.</p></div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Coach() {
+  return (
+    <section className="section coach-section" id="coach" aria-labelledby="coach-title">
+      <div className="coach-layout">
+        <div className="coach-portrait" aria-label="Abstract training portrait artwork">
+          <div className="coach-silhouette" aria-hidden="true" />
+          <span className="coach-photo-caption">Coach / Instructor</span>
+        </div>
+        <div className="coach-copy">
+          <span className="section-kicker">Guidance in every round</span>
+          <h2 id="coach-title">Meet your coach.</h2>
+          <div className="coach-name">Coach</div>
+          <div className="coach-role">Martial Arts Coach</div>
+          <p>Learn with focused guidance, sound fundamentals and steady progression. Whether you're taking your first step or refining your game, training starts with showing up.</p>
+          <a className="social-link" href={INSTAGRAM} target="_blank" rel="noreferrer"><Instagram size={16} /> @dutta_3070 <ArrowUpRight size={14} /></a>
+          <div><a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noreferrer">Train with us <ArrowUpRight size={15} /></a></div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  const [callPrompt, setCallPrompt] = useState(false);
+  return (
+    <section className="section location-section" id="contact" aria-labelledby="contact-title">
+      <div className="section-head">
+        <span className="section-kicker">A real place. Your next step.</span>
+        <h2 id="contact-title">Find your fight.<br />Find your place.</h2>
+      </div>
+      <div className="location-grid">
+        <article className="location-card">
+          <div className="location-pin"><MapPin size={19} /></div>
+          <h3>Martial Arts Studio</h3>
+          <span className="location-area">Neelbad, Bhopal</span>
+          <address>{ADDRESS}</address>
+        </article>
+        <div className="location-side">
+          <div className="location-art" aria-hidden="true"><span /></div>
+          <p>Step into a serious training space for striking, grappling, strength and conditioning. Get directions or reach out directly on Instagram.</p>
+          <div className="contact-actions">
+            <a className="button button-primary" href={DIRECTIONS} target="_blank" rel="noreferrer">Get directions <ArrowUpRight size={14} /></a>
+            <button className="button button-ghost" type="button" aria-label="Call the studio (phone number not provided)" aria-describedby="contact-note" onClick={() => setCallPrompt(true)}><Phone size={14} /> Call</button>
+            <a className="button button-ghost" href={INSTAGRAM} target="_blank" rel="noreferrer"><Instagram size={14} /> Instagram</a>
+          </div>
+          <p className="contact-note" id="contact-note" aria-live="polite">{callPrompt ? 'A phone number has not been provided. Message the studio on Instagram instead.' : 'Phone number not listed. Use Instagram to contact the studio.'}</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FinalCallout() {
+  return (
+    <section className="section cta-section" aria-labelledby="cta-title">
+      <div className="cta-inner">
+        <span className="section-kicker">Your next round starts here</span>
+        <h2 id="cta-title">Ready to start training?</h2>
+        <p>Your first step is simple. Show up.</p>
+        <div className="hero-actions">
+          <a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noreferrer">Start Training <ArrowUpRight size={15} /></a>
+          <a className="button button-ghost" href="#contact">Contact Us <ArrowDownRight size={15} /></a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  return (
+    <section className="section faq-section" id="faq" aria-labelledby="faq-title">
+      <div className="faq-layout">
+        <div className="faq-heading">
+          <span className="section-kicker">First steps, clear answers</span>
+          <h2 id="faq-title">Frequently asked questions.</h2>
+          <p>Good training starts with knowing what to expect. Here's what beginners often ask.</p>
+        </div>
+        <div className="faq-list">
+          {faqs.map(([question, answer], index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div className={`faq-item ${isOpen ? 'is-open' : ''}`} key={question}>
+                <button className="faq-question" type="button" aria-expanded={isOpen} aria-controls={`faq-answer-${index}`} onClick={() => setOpenIndex(isOpen ? null : index)}>
+                  <span>{question}</span><span className="faq-plus" aria-hidden="true">+</span>
+                </button>
+                <div className="faq-answer" id={`faq-answer-${index}`} role="region" aria-label={question} aria-hidden={!isOpen}>
+                  <div><p>{answer}</p></div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  const trainingLinks = services.slice(0, 4);
+  return (
+    <footer className="site-footer">
+      <div className="footer-main">
+        <div>
+          <Brand />
+          <p className="footer-description">A neighborhood training ground for striking, grappling, strength and discipline in Neelbad, Bhopal.</p>
+        </div>
+        <div className="footer-col">
+          <strong>Explore</strong>
+          <nav className="footer-nav" aria-label="Footer navigation">{navItems.map(([label, href]) => <a href={href} key={label}>{label}</a>)}</nav>
+        </div>
+        <div className="footer-col">
+          <strong>Train</strong>
+          <nav className="footer-nav" aria-label="Training disciplines">{trainingLinks.map((item) => <a href="#training" key={item.title}>{item.title}</a>)}</nav>
+        </div>
+        <div className="footer-col">
+          <strong>Find the studio</strong>
+          <p className="footer-description">Neelbad, Bhopal<br />Madhya Pradesh 462044</p>
+          <a className="social-link" href={INSTAGRAM} target="_blank" rel="noreferrer"><Instagram size={14} /> @dutta_3070</a>
+          <a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noreferrer">Start Training <ArrowUpRight size={13} /></a>
+        </div>
+      </div>
+      <div className="footer-bottom"><span>Martial Arts Studio · Neelbad, Bhopal</span><span>Train with purpose. <a href="#home">Back to top ↑</a></span></div>
+    </footer>
+  );
+}
+
+function Home() {
+  return (
+    <main className="site-shell">
+      <Header />
+      <Hero />
+      <Training />
+      <Manifesto />
+      <About />
+      <Coach />
+      <Contact />
+      <FinalCallout />
+      <FAQ />
+      <Footer />
+    </main>
+  );
+}
+
+function Router() {
+  return (
+    <RoutedErrorBoundary>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route component={NotFound} />
+      </Switch>
+    </RoutedErrorBoundary>
+  );
+}
+
+function RoutedErrorBoundary({ children }: { children: ReactNode }) {
+  const [location] = useLocation();
+  return <ErrorBoundary resetKey={location}>{children}</ErrorBoundary>;
+}
+
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+          <Router />
+        </WouterRouter>
+        <Toaster />
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+}
+
+export default App;
