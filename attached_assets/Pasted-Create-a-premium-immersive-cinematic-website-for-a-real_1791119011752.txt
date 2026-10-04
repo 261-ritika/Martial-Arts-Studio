@@ -1,0 +1,322 @@
+Create a premium, immersive, cinematic website for a real martial arts and fitness studio called:
+
+# MARTIAL ARTS STUDIO
+
+The website should feel like entering a **modern martial arts training center / high-performance fitness studio**.
+
+It should combine:
+
+**Martial Arts + Fitness + Training + Strength + Movement + Discipline + Cinematic 3D Design**
+
+Do NOT make it look like a normal static gym website.
+
+The experience should feel alive from the moment the visitor enters until they reach the footer.
+
+---
+
+# BRAND INFORMATION
+
+## Business Name
+
+**Martial Arts Studio**
+
+## Business Type
+
+**Martial Arts School / Fitness Studio**
+
+## Location
+
+**Bhadbhada Road, Main Road, near SBI Bank, near Durga Mandir, Neelbad, Bhopal, Madhya Pradesh 462044**
+
+## Coach
+
+**Coach Shubham Dwivedi**
+
+Role:
+
+**Martial Arts Coach**
+
+Instagram:
+
+**@dutta_3070**
+
+---
+
+# PROVIDED VISUAL ASSETS — USE ALL OF THEM
+
+I have provided multiple real photographs and the real Martial Arts Studio logo.
+
+**USE ALL PROVIDED IMAGES.**
+
+Do not select only one or two.
+
+Do not hide the remaining photographs inside a carousel.
+
+Create one major visual section where **ALL of the provided photographs are visible together**.
+
+The photographs should communicate the real identity of the studio, its trophies, achievements, environment and training atmosphere.
+
+Do not replace the real photographs with generic stock gym images.
+
+---
+
+# LOGO
+
+Use the provided Martial Arts Studio logo exactly as supplied.
+
+The logo contains:
+
+**MARTIAL ARTS FITNESS STUDIO**
+
+with a martial artist performing a kick.
+
+Use it in:
+
+* Navbar
+* Hero
+* Footer
+* Other appropriate brand locations
+
+Do not distort or unnecessarily redesign the logo.
+
+---
+
+# MOST IMPORTANT VISUAL DIRECTION
+
+The website should visually feel like a **real high-performance martial arts and fitness training center**.
+
+The environment should suggest:
+
+* Gym equipment
+* Training floor
+* Martial arts mats
+* Heavy bags
+* Boxing equipment
+* Fitness equipment
+* Training silhouettes
+* Athletic movement
+* Industrial gym architecture
+* Metallic surfaces
+* Rubber gym flooring
+* Training lights
+* Blue/cyan energy lighting
+* Warm overhead gym lighting
+* Motion
+* Strength
+* Physical activity
+
+The background should NOT simply be a plain black gradient.
+
+It should feel like there is an actual **training environment behind the interface**.
+
+---
+
+# MOVING BACKGROUND — VERY IMPORTANT
+
+The website must have a **clearly visible animated background throughout the entire experience**.
+
+Do NOT limit the animated background to the hero section.
+
+The background should continue moving subtly but visibly through:
+
+* Hero
+* Training
+* Services
+* Motivation
+* About
+* Studio gallery
+* Coach
+* Contact
+* FAQ
+* Footer
+
+The visitor should be able to tell that the background is animated.
+
+---
+
+# BACKGROUND CONCEPT
+
+Create the feeling that the website is taking place inside a futuristic/high-performance martial arts training center.
+
+Possible background elements:
+
+### Training environment
+
+Subtle visual elements such as:
+
+* Martial arts mats
+* Gym floor texture
+* Boxing ring ropes
+* Heavy punching bags
+* Training equipment silhouettes
+* Dumbbells
+* Kettlebells
+* Resistance bands
+* Gym structures
+* Metal frames
+* Athletic silhouettes
+* Training cones
+* Jump ropes
+* Abstract fitness equipment
+
+These should be integrated tastefully rather than covering the screen.
+
+---
+
+# BACKGROUND MOTION
+
+The background should have continuous movement.
+
+Examples:
+
+* Slow-moving light beams
+* Moving gym lights
+* Floating dust/particles
+* Subtle smoke
+* Atmospheric fog
+* Animated energy lines
+* Slow camera movement
+* Parallax gym equipment
+* Moving shadows
+* Light reflections
+* Subtle perspective-grid movement
+* Floating particles reacting to scrolling
+* Very subtle motion blur
+
+The movement should be **visible but controlled**.
+
+The user should think:
+
+**“This feels like a living training environment.”**
+
+not:
+
+**“This is just a static website with a gradient.”**
+
+---
+
+# BACKGROUND SHOULD CHANGE WITH SECTIONS
+
+The background does not need to remain exactly identical everywhere.
+
+Instead, it should evolve as the visitor scrolls.
+
+For example:
+
+### HERO
+
+Dark futuristic martial arts training floor.
+
+### TRAINING
+
+More visible gym/training elements, subtle equipment silhouettes and movement.
+
+### SERVICES
+
+Dynamic athletic environment with moving lights and energy.
+
+### MOTIVATION
+
+Darker cinematic environment with dramatic light beams.
+
+### STUDIO
+
+Real photographs become the focus, with the animated environment continuing subtly behind them.
+
+### COACH
+
+Premium training-center atmosphere.
+
+### CONTACT
+
+Strong dramatic gym lighting leading toward the final CTA.
+
+This creates the feeling of moving through different areas of one training facility.
+
+---
+
+# VISIBLE SECTION TRANSITIONS — VERY IMPORTANT
+
+The transitions between sections must be **clearly visible**.
+
+Do NOT simply fade one section into another with a tiny opacity change.
+
+The user should visually notice that they have entered a new part of the experience.
+
+Use cinematic transitions such as:
+
+* Large objects moving across the screen
+* Background camera movement
+* 3D perspective changes
+* Strong parallax
+* Sections sliding into depth
+* Large text moving through the viewport
+* Light sweeps
+* Blur-to-sharp transitions
+* Scale transitions
+* 3D rotations
+* Objects passing in front of the camera
+* Particles transitioning from one section to another
+* Gym equipment appearing/disappearing
+* Background environment changing
+* Large panels physically moving
+* Horizontal movement during specific scroll moments
+* Character movement between sections
+
+Transitions should be **obvious, smooth and visually satisfying**.
+
+---
+
+# SECTION TRANSITION EXAMPLE
+
+For example, when moving from HERO → TRAINING:
+
+The martial artist performs the roundhouse kick.
+
+The kick moves toward the viewer.
+
+A training information panel gets hit and moves away.
+
+The camera appears to move deeper into the training center.
+
+The background lighting changes.
+
+Gym/training elements become more visible.
+
+The TRAINING section then enters from depth.
+
+This should feel like one continuous animation rather than two unrelated sections.
+
+---
+
+# SIGNATURE MARTIAL ARTIST INTERACTION
+
+The main character is the visual centerpiece.
+
+The character starts in a fighting stance.
+
+As the user scrolls:
+
+1. Fighter prepares.
+2. Fighter rotates.
+3. Leg rises.
+4. Fighter performs a powerful roundhouse kick.
+5. Kick hits a floating information card.
+6. Card reacts to the impact.
+7. Card moves away/breaks into particles.
+8. Camera transitions forward.
+9. New section appears.
+
+The kick should be synchronized with scrolling.
+
+This should be one of the most memorable features of the website.
+
+---
+
+# HERO / LANDING PAGE
+
+Large heading:
+
+**MARTIAL ARTS STUDIO**
+
+Supporting line:

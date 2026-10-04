@@ -40,7 +40,7 @@ const faqs = [
 function Brand() {
   return (
     <a className="brand" href="#home" aria-label="Martial Arts Studio home">
-      <span className="brand-mark" aria-hidden="true">MAS</span>
+      <img className="brand-logo" src="/images/studio-logo.png" alt="" />
       <span className="brand-copy"><strong>Martial Arts Studio</strong><small>Neelbad · Bhopal</small></span>
     </a>
   );
