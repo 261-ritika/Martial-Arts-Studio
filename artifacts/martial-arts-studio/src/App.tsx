@@ -257,8 +257,8 @@ function Coach() {
   return (
     <section className="section coach-section" id="coach" aria-labelledby="coach-title">
       <div className="coach-layout">
-        <div className="coach-portrait" aria-label="Abstract training portrait artwork">
-          <div className="coach-silhouette" aria-hidden="true" />
+        <div className="coach-portrait">
+          <img src="/images/coach-portrait.png" alt="Martial Arts Studio coach in a black training jacket" />
           <span className="coach-photo-caption">Coach / Instructor</span>
         </div>
         <div className="coach-copy">

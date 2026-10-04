@@ -237,10 +237,9 @@ button { font: inherit; }
 
 .coach-section { background:linear-gradient(110deg,#0b1014,#121a1e); }
 .coach-layout { display:grid; grid-template-columns:.8fr 1.2fr; gap:9vw; align-items:center; }
-.coach-portrait { position:relative; width:min(100%,390px); aspect-ratio:.85; border:1px solid rgba(189,207,201,.18); background:linear-gradient(150deg,#263a3d,#101619 65%); display:flex; align-items:flex-end; justify-content:center; overflow:hidden; }
-.coach-portrait::before { content:''; position:absolute; width:80%; aspect-ratio:1; top:11%; border-radius:50%; border:1px solid rgba(210,150,87,.25); box-shadow:0 0 80px rgba(49,128,132,.14); }
-.coach-silhouette { position:relative; z-index:1; width:76%; height:72%; background:linear-gradient(145deg,#273337,#151c1f 60%,#080c0e); clip-path:polygon(37% 2%,62% 2%,69% 13%,83% 16%,95% 40%,100% 100%,0 100%,6% 46%,20% 18%,32% 14%); border-top:2px solid rgba(222,155,91,.46); filter:drop-shadow(0 0 36px rgba(0,0,0,.6)); }
-.coach-silhouette::before { content:''; position:absolute; top:0; left:34%; width:31%; height:23%; border-radius:48% 48% 42% 42%; background:linear-gradient(115deg,#354348,#13191c 70%); }
+.coach-portrait { position:relative; width:min(100%,390px); aspect-ratio:.85; border:1px solid rgba(189,207,201,.18); background:#101619; display:flex; align-items:flex-end; justify-content:center; overflow:hidden; }
+.coach-portrait::after { content:''; position:absolute; inset:50% 0 0; pointer-events:none; background:linear-gradient(0deg,rgba(5,9,11,.72),transparent); }
+.coach-portrait img { display:block; width:100%; height:100%; object-fit:cover; object-position:center 36%; }
 .coach-photo-caption { position:absolute; z-index:2; bottom:17px; left:19px; color:#849191; font:8px var(--app-font-mono); letter-spacing:.12em; text-transform:uppercase; }
 .coach-copy h2 { font-size:clamp(54px,7vw,88px); }
 .coach-name { margin:20px 0 0; font:700 34px 'Barlow Condensed',sans-serif; text-transform:uppercase; }
