@@ -1,0 +1,448 @@
+Redesign the VISUAL DESIGN of my existing Martial Arts Studio website without changing or removing the existing content, sections, information, buttons, links, images, or functionality.
+
+This is a DESIGN UPGRADE only.
+
+Keep the existing website structure and content, but completely improve the visual experience.
+
+## MAIN GOAL
+
+Make the website feel like a:
+
+**Premium futuristic martial arts + fitness training center**
+
+It should look energetic, athletic, cinematic, immersive and professional.
+
+It should NOT look like a normal static gym website.
+
+---
+
+# 1. MOVING BACKGROUND — VERY IMPORTANT
+
+Add a clearly visible animated background throughout the website.
+
+The background should NOT be a plain black/blue gradient.
+
+It should visually feel like an actual:
+
+**MMA / Boxing / Taekwondo / Fitness Training Center**
+
+Use subtle but clearly recognizable background elements such as:
+
+* Training mats
+* Boxing bags
+* Gym equipment silhouettes
+* Metal gym structures
+* Training lights
+* Fitness equipment
+* Athletic silhouettes
+* Smoke/fog
+* Floating dust
+* Light beams
+* Blue energy lights
+* Moving shadows
+* Perspective lines
+* Depth layers
+
+The background should continuously move slowly.
+
+Use parallax so that background elements move at different speeds while scrolling.
+
+The movement should be clearly visible but should never make the content difficult to read.
+
+---
+
+# 2. THE BACKGROUND SHOULD MOVE WITH THE USER
+
+Do not make the background animation independent from the page.
+
+Make it react to scrolling.
+
+As the user scrolls:
+
+* Background camera slowly moves
+* Gym lights shift
+* Fog moves
+* Particles move
+* Background objects move at different depths
+* Lighting changes between sections
+* Perspective changes
+
+The feeling should be:
+
+**The visitor is physically moving through a futuristic martial arts training facility.**
+
+---
+
+# 3. CLEARLY VISIBLE SECTION TRANSITIONS
+
+This is extremely important.
+
+Do NOT use simple:
+
+fade → next section.
+
+Make transitions clearly visible.
+
+When moving from one section to another, use:
+
+* Large-scale movement
+* Zoom
+* 3D depth
+* Parallax
+* Sliding elements
+* Camera movement
+* Light sweeps
+* Blur-to-focus
+* Scale changes
+* Moving background objects
+* Particle transitions
+* Large typography movement
+* Panels moving into/out of the screen
+
+The visitor should clearly NOTICE when a new section begins.
+
+The transitions should feel cinematic.
+
+---
+
+# 4. HERO → NEXT SECTION
+
+Make the transition from the hero to the Training section especially impressive.
+
+The martial artist in the hero should interact with the transition.
+
+As the user scrolls:
+
+**fighter prepares → movement → roundhouse kick → impact → transition**
+
+The kick should appear to hit or push away a floating information panel.
+
+Then the camera/background should move deeper into the training-center environment.
+
+The Training section should emerge from that movement.
+
+This should feel like one continuous scene rather than two separate sections.
+
+---
+
+# 5. MAKE THE MARTIAL ARTIST FEEL 3D
+
+If the existing website already contains a martial artist:
+
+Improve its presentation.
+
+Give it:
+
+* Depth
+* Shadow
+* Lighting
+* Parallax
+* 3D positioning
+* Subtle movement
+
+The character should feel like it exists inside the environment instead of being a flat image placed on top.
+
+---
+
+# 6. TRAINING/SERVICE CARDS
+
+Improve the existing service cards.
+
+Services include:
+
+**Boxing**
+
+**Jiu-Jitsu**
+
+**Kickboxing**
+
+**MMA**
+
+**Taekwondo**
+
+**Wrestling**
+
+**CrossFit / Bodyweight / Endurance**
+
+Make them look like floating panels inside a futuristic training center.
+
+Add:
+
+* 3D perspective
+* Depth
+* Glass effect
+* Blue glowing edges
+* Shadows
+* Hover movement
+* Slight rotation
+* Parallax
+
+When hovering over one card:
+
+The selected card should come forward.
+
+Other cards should slightly move backward.
+
+---
+
+# 7. MAKE THE PHOTO SECTION MORE PREMIUM
+
+Keep ALL existing provided Martial Arts Studio photographs.
+
+Do not remove any.
+
+Do not replace them.
+
+Do not hide them behind a carousel.
+
+Make the entire collection look like a premium cinematic studio photo wall.
+
+Use:
+
+* Masonry layout
+* Different image sizes
+* Layered cards
+* Slight overlaps
+* Depth
+* Parallax
+* Hover zoom
+* Smooth image reveals
+
+The trophy/display photo should remain prominent.
+
+The photos should clearly communicate:
+
+**This is a real martial arts training studio.**
+
+---
+
+# 8. FITNESS / GYM ATMOSPHERE
+
+Throughout the website, subtly introduce visual elements associated with:
+
+* Boxing
+* MMA
+* Taekwondo
+* Strength training
+* Conditioning
+* Fitness
+* Endurance
+
+The background should make users immediately understand:
+
+**This is a place where people train physically.**
+
+Avoid generic abstract technology backgrounds.
+
+It should feel like a real gym enhanced with futuristic visual design.
+
+---
+
+# 9. COLOR & LIGHTING
+
+Use a premium dark palette:
+
+* Black
+* Charcoal
+* Deep navy
+* White
+* Electric blue
+* Cyan
+* Small amounts of warm orange/yellow gym lighting
+
+Use blue/cyan lighting around:
+
+* Buttons
+* Cards
+* Borders
+* Navigation
+* Important headings
+
+Use warm lighting in the gym environment to make it feel realistic.
+
+---
+
+# 10. TYPOGRAPHY
+
+Make headings bold, athletic and powerful.
+
+Important words can use blue/cyan accent color.
+
+Create strong visual hierarchy.
+
+Large headings should sometimes enter the screen with:
+
+* Slide
+* Scale
+* Blur-to-focus
+* Staggered reveal
+
+Do not animate every word unnecessarily.
+
+---
+
+# 11. NAVBAR
+
+Improve the existing navbar visually.
+
+At the top:
+
+Transparent / cinematic.
+
+After scrolling:
+
+Dark glass panel with:
+
+* Blur
+* Slight transparency
+* Blue accent
+* Subtle shadow
+
+Keep navigation readable.
+
+Do not change the existing navigation functionality.
+
+---
+
+# 12. BUTTONS
+
+Make existing buttons feel premium and interactive.
+
+Add:
+
+* Glow
+* Hover scale
+* Light sweep
+* Subtle magnetic movement
+* Smooth transition
+
+Do not make buttons huge or distracting.
+
+---
+
+# 13. SECTION-BY-SECTION MOTION
+
+Every major section should have its own visual movement.
+
+### Hero
+
+Moving gym background + fighter movement.
+
+### Training
+
+Cards enter with 3D depth.
+
+### Motivation
+
+Large typography + moving light beams.
+
+### About
+
+Image parallax + moving background.
+
+### Studio
+
+Photos reveal with depth and parallax.
+
+### Achievements
+
+Trophy imagery + cinematic lighting.
+
+### Coach
+
+Portrait/environment moves subtly.
+
+### Contact
+
+Strong lighting transition.
+
+### FAQ
+
+Smooth accordion animations.
+
+### Footer
+
+Subtle atmospheric movement.
+
+---
+
+# 14. DO NOT MAKE IT OVERLY BUSY
+
+The website should be impressive but professional.
+
+Do not use:
+
+* Random spinning objects
+* Excessive neon
+* Too many particles
+* Flashing effects
+* Constant rotations
+* Distracting animations
+
+The goal is:
+
+**CINEMATIC + ATHLETIC + PREMIUM**
+
+not:
+
+**CHAOTIC + OVERANIMATED**
+
+---
+
+# 15. IMPORTANT — DO NOT BREAK THE WEBSITE
+
+Because this is an existing website:
+
+DO NOT:
+
+* Remove sections
+* Remove existing content
+* Remove images
+* Remove buttons
+* Remove links
+* Change the business information
+* Break navigation
+* Break mobile responsiveness
+* Replace the existing website with a completely different template
+
+Only improve the visual design, animation, background, transitions, depth and overall presentation.
+
+---
+
+# FINAL RESULT
+
+The existing website should feel transformed from:
+
+**“A normal martial arts website”**
+
+into:
+
+**“An interactive cinematic martial arts and fitness training experience.”**
+
+The user should visibly notice:
+
+**MOVING BACKGROUND**
+
+*
+
+**3D DEPTH**
+
+*
+
+**CLEAR SECTION TRANSITIONS**
+
+*
+
+**MARTIAL ARTS MOVEMENT**
+
+*
+
+**FITNESS/GYM ENVIRONMENT**
+
+*
+
+**REAL STUDIO PHOTOGRAPHS**
+
+The most important requirement:
+
+**DO NOT MAKE THE MOVING BACKGROUND OR TRANSITIONS SUBTLE. THEY SHOULD BE CLEARLY VISIBLE WHILE STILL LOOKING PREMIUM AND SMOOTH.**

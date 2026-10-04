@@ -380,6 +380,30 @@ function Footer() {
 }
 
 function Home() {
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const root = document.documentElement;
+    const header = document.querySelector<HTMLElement>('.site-header');
+    let frame = 0;
+    const syncArena = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        root.style.setProperty('--facility-scroll', `${window.scrollY}px`);
+        header?.classList.toggle('is-scrolled', window.scrollY > 24);
+      });
+    };
+    window.addEventListener('scroll', syncArena, { passive: true });
+    window.addEventListener('resize', syncArena);
+    syncArena();
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', syncArena);
+      window.removeEventListener('resize', syncArena);
+      root.style.removeProperty('--facility-scroll');
+      header?.classList.remove('is-scrolled');
+    };
+  }, []);
+
   return (
     <main className="site-shell">
       <Header />
