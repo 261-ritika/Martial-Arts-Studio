@@ -1,9 +1,15 @@
 import { useEffect, useRef, useState, type PointerEvent, type ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
+import { CookieConsent } from '@/components/cookie-consent';
+import { SeoHead } from '@/components/seo-head';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { openCookieSettings, trackPageView } from '@/lib/analytics';
+import { sitePath } from '@/lib/site';
 import NotFound from '@/pages/not-found';
+import PrivacyPolicy from '@/pages/privacy-policy';
+import TermsAndConditions from '@/pages/terms-and-conditions';
 import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Instagram, MapPin, Menu, Phone, X } from 'lucide-react';
 import './index.css';
@@ -32,11 +38,11 @@ const services = [
 ];
 
 const studioPhotos = [
-  { src: '/images/studio-class.webp', alt: 'Students training together on the studio’s red and blue mats', label: 'Classes in session' },
-  { src: '/images/studio-trophy-wall.webp', alt: 'Trophies displayed inside Martial Arts Studio', label: 'Studio achievements' },
-  { src: '/images/studio-boxing.webp', alt: 'Young athlete practicing boxing at the studio', label: 'Boxing practice' },
-  { src: '/images/studio-fundamentals.webp', alt: 'Athlete working on boxing fundamentals in the studio', label: 'Build the basics' },
-  { src: '/images/studio-conditioning.webp', alt: 'Athlete doing strength and conditioning work at the studio', label: 'Strength and conditioning' },
+  { src: sitePath('/images/studio-class.webp'), alt: 'Students training together on the studio’s red and blue mats', label: 'Classes in session', width: 433, height: 741 },
+  { src: sitePath('/images/studio-trophy-wall.webp'), alt: 'Trophies displayed inside Martial Arts Studio', label: 'Studio achievements', width: 467, height: 582 },
+  { src: sitePath('/images/studio-boxing.webp'), alt: 'Young athlete practicing boxing at the studio', label: 'Boxing practice', width: 437, height: 472 },
+  { src: sitePath('/images/studio-fundamentals.webp'), alt: 'Athlete working on boxing fundamentals in the studio', label: 'Build the basics', width: 413, height: 620 },
+  { src: sitePath('/images/studio-conditioning.webp'), alt: 'Athlete doing strength and conditioning work at the studio', label: 'Strength and conditioning', width: 406, height: 566 },
 ];
 
 const faqs = [
@@ -52,7 +58,7 @@ const faqs = [
 function Brand() {
   return (
     <a className="brand" href="#home" aria-label="Martial Arts Studio home">
-      <img className="brand-logo" src="/images/studio-logo.png" alt="" />
+      <img className="brand-logo" src={sitePath('/images/studio-logo.webp')} alt="" width="505" height="522" />
       <span className="brand-copy"><strong>Martial Arts Studio</strong><small>Neelbad · Bhopal</small></span>
     </a>
   );
@@ -67,7 +73,7 @@ function Header() {
       <nav className="desktop-nav" aria-label="Main navigation">
         {navItems.map(([label, href]) => <a key={label} href={href}>{label}</a>)}
       </nav>
-      <a className="button button-primary header-action" href={INSTAGRAM} target="_blank" rel="noreferrer">
+      <a className="button button-primary header-action" href={INSTAGRAM} target="_blank" rel="noopener noreferrer">
         Start Training <ArrowUpRight size={14} />
       </a>
       <button className="mobile-toggle" type="button" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
@@ -75,7 +81,7 @@ function Header() {
       </button>
       <nav className={`mobile-menu ${menuOpen ? 'is-open' : ''}`} aria-label="Mobile navigation" aria-hidden={!menuOpen}>
         {navItems.map(([label, href]) => <a key={label} href={href} onClick={closeMenu}>{label}</a>)}
-        <a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noreferrer" onClick={closeMenu}>Start Training <ArrowUpRight size={14} /></a>
+        <a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Start Training <ArrowUpRight size={14} /></a>
       </nav>
     </header>
   );
@@ -126,14 +132,14 @@ function Hero() {
         <p className="hero-lead">Train your body. Sharpen your mind. Build your discipline.</p>
         <p className="hero-desc">Professional martial arts and fitness training in Neelbad, Bhopal — from striking and grappling to strength, endurance and conditioning.</p>
         <div className="hero-actions">
-          <a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noreferrer">Start Training <ArrowUpRight size={15} /></a>
+          <a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noopener noreferrer">Start Training <ArrowUpRight size={15} /></a>
           <a className="button button-ghost" href="#about">Explore Studio <ArrowDownRight size={15} /></a>
         </div>
       </div>
       <div className="fighter-stage">
         <div className="fighter-halo" />
-        <img className="fighter-img fighter-standing" src="/images/fighter-standing.png" alt="Martial artist standing in a focused fighting stance" />
-        <img className="fighter-img fighter-kick" src="/images/fighter-kick.png" alt="Martial artist extending a full roundhouse kick" />
+        <img className="fighter-img fighter-standing" src={sitePath('/images/fighter-standing.webp')} alt="Martial artist standing in a focused fighting stance" width="1024" height="1024" fetchPriority="high" />
+        <img className="fighter-img fighter-kick" src={sitePath('/images/fighter-kick.webp')} alt="Martial artist extending a full roundhouse kick" width="1024" height="1024" loading="lazy" />
       </div>
       <aside className={`hero-card ${kickActive ? 'is-hit' : ''}`} aria-live="polite">
         <small>{kickActive ? 'Impact / 01' : 'Training note / 01'}</small>
@@ -243,7 +249,7 @@ function About() {
         <div className="studio-gallery" aria-label="Photos of Martial Arts Studio">
           {studioPhotos.map((photo) => (
             <figure className="studio-photo" key={photo.src}>
-              <img src={photo.src} alt={photo.alt} decoding="async" />
+              <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
               <figcaption>{photo.label}</figcaption>
             </figure>
           ))}
@@ -258,7 +264,7 @@ function Coach() {
     <section className="section coach-section" id="coach" aria-labelledby="coach-title">
       <div className="coach-layout">
         <div className="coach-portrait">
-          <img src="/images/coach-portrait.png" alt="Martial Arts Studio coach in a black training jacket" />
+          <img src={sitePath('/images/coach-portrait.webp')} alt="Martial Arts Studio coach in a black training jacket" width="472" height="561" loading="lazy" decoding="async" />
           <span className="coach-photo-caption">Coach / Instructor</span>
         </div>
         <div className="coach-copy">
@@ -267,8 +273,8 @@ function Coach() {
           <div className="coach-name">Coach</div>
           <div className="coach-role">Martial Arts Coach</div>
           <p>Learn with focused guidance, sound fundamentals and steady progression. Whether you're taking your first step or refining your game, training starts with showing up.</p>
-          <a className="social-link" href={INSTAGRAM} target="_blank" rel="noreferrer"><Instagram size={16} /> Studio Instagram · {INSTAGRAM_HANDLE} <ArrowUpRight size={14} /></a>
-          <div><a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noreferrer">Train with us <ArrowUpRight size={15} /></a></div>
+          <a className="social-link" href={INSTAGRAM} target="_blank" rel="noopener noreferrer"><Instagram size={16} /> Studio Instagram · {INSTAGRAM_HANDLE} <ArrowUpRight size={14} /></a>
+          <div><a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noopener noreferrer">Train with us <ArrowUpRight size={15} /></a></div>
         </div>
       </div>
     </section>
@@ -293,9 +299,9 @@ function Contact() {
           <div className="location-art" aria-hidden="true"><span /></div>
             <p>Step into a serious training space for striking, grappling, strength and conditioning. Call the studio or find us on Instagram.</p>
           <div className="contact-actions">
-            <a className="button button-primary" href={DIRECTIONS} target="_blank" rel="noreferrer">Get directions <ArrowUpRight size={14} /></a>
+            <a className="button button-primary" href={DIRECTIONS} target="_blank" rel="noopener noreferrer">Get directions <ArrowUpRight size={14} /></a>
               <a className="button button-ghost" href={`tel:${PHONE}`} aria-label={`Call Martial Arts Studio at ${PHONE_LABEL}`}><Phone size={14} /> {PHONE_LABEL}</a>
-              <a className="button button-ghost" href={INSTAGRAM} target="_blank" rel="noreferrer"><Instagram size={14} /> {INSTAGRAM_HANDLE}</a>
+              <a className="button button-ghost" href={INSTAGRAM} target="_blank" rel="noopener noreferrer"><Instagram size={14} /> {INSTAGRAM_HANDLE}</a>
           </div>
         </div>
       </div>
@@ -311,7 +317,7 @@ function FinalCallout() {
         <h2 id="cta-title">Ready to start training?</h2>
         <p>Your first step is simple. Show up.</p>
         <div className="hero-actions">
-          <a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noreferrer">Start Training <ArrowUpRight size={15} /></a>
+          <a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noopener noreferrer">Start Training <ArrowUpRight size={15} /></a>
           <a className="button button-ghost" href="#contact">Contact Us <ArrowDownRight size={15} /></a>
         </div>
       </div>
@@ -369,11 +375,16 @@ function Footer() {
         <div className="footer-col">
           <strong>Find the studio</strong>
           <p className="footer-description">Neelbad, Bhopal<br />Madhya Pradesh 462044</p>
-          <a className="social-link" href={INSTAGRAM} target="_blank" rel="noreferrer"><Instagram size={14} /> {INSTAGRAM_HANDLE}</a>
+          <a className="social-link" href={INSTAGRAM} target="_blank" rel="noopener noreferrer"><Instagram size={14} /> {INSTAGRAM_HANDLE}</a>
           <a className="social-link" href={`tel:${PHONE}`}><Phone size={14} /> {PHONE_LABEL}</a>
-          <a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noreferrer">Start Training <ArrowUpRight size={13} /></a>
+          <a className="button button-primary" href={INSTAGRAM} target="_blank" rel="noopener noreferrer">Start Training <ArrowUpRight size={13} /></a>
         </div>
       </div>
+      <nav className="footer-legal" aria-label="Legal and privacy">
+        <a href={sitePath('/privacy-policy')}>Privacy Policy</a>
+        <a href={sitePath('/terms-and-conditions')}>Terms &amp; Conditions</a>
+        <button type="button" onClick={openCookieSettings}>Cookie settings</button>
+      </nav>
       <div className="footer-bottom"><span>Martial Arts Studio · Neelbad, Bhopal</span><span>Train with purpose. <a href="#home">Back to top ↑</a></span></div>
     </footer>
   );
@@ -405,19 +416,33 @@ function Home() {
   }, []);
 
   return (
-    <main className="site-shell">
-      <Header />
-      <Hero />
-      <Training />
-      <Manifesto />
-      <About />
-      <Coach />
-      <Contact />
-      <FinalCallout />
-      <FAQ />
-      <Footer />
-    </main>
+    <>
+      <SeoHead
+        title="Martial Arts Training in Bhopal | Martial Arts Studio"
+        description="Train boxing, Jiu-Jitsu, kickboxing, MMA and fitness at Martial Arts Studio in Neelbad, Bhopal. Build skill, strength and discipline with focused coaching."
+      />
+      <main className="site-shell">
+        <Header />
+        <Hero />
+        <Training />
+        <Manifesto />
+        <About />
+        <Coach />
+        <Contact />
+        <FinalCallout />
+        <FAQ />
+        <Footer />
+      </main>
+    </>
   );
+}
+
+function AnalyticsPageTracker() {
+  const [location] = useLocation();
+  useEffect(() => {
+    trackPageView(location);
+  }, [location]);
+  return null;
 }
 
 function Router() {
@@ -425,6 +450,8 @@ function Router() {
     <RoutedErrorBoundary>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/terms-and-conditions" component={TermsAndConditions} />
         <Route component={NotFound} />
       </Switch>
     </RoutedErrorBoundary>
@@ -442,8 +469,10 @@ function App() {
       <TooltipProvider>
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
           <Router />
+          <AnalyticsPageTracker />
         </WouterRouter>
         <Toaster />
+        <CookieConsent />
       </TooltipProvider>
     </QueryClientProvider>
   );

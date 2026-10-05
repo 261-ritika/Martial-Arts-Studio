@@ -1,23 +1,23 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { AlertCircle } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
+import { SeoHead } from '@/components/seo-head';
+import { sitePath } from '@/lib/site';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gray-50">
-      <Card className="w-full max-w-md mx-4">
-        <CardContent className="pt-6">
-          <div className="flex mb-4 gap-2">
-            <AlertCircle className="h-8 w-8 text-red-500" />
-            <h1 className="text-2xl font-bold text-gray-900">
-              404 Page Not Found
-            </h1>
-          </div>
-
-          <p className="mt-4 text-sm text-gray-600">
-            Did you forget to add the page to the router?
-          </p>
-        </CardContent>
-      </Card>
-    </div>
+    <main className="not-found-page">
+      <SeoHead
+        title="Page not found | Martial Arts Studio"
+        description="This page could not be found. Return to Martial Arts Studio in Neelbad, Bhopal."
+        noIndex
+      />
+      <div className="not-found-panel">
+        <span className="section-kicker">404 · Off the mat</span>
+        <h1>That page isn’t here.</h1>
+        <p>The link may be out of date, or the address may have a typo.</p>
+        <a className="button button-primary" href={sitePath('/')}>
+          <ArrowLeft size={15} /> Back to the studio
+        </a>
+      </div>
+    </main>
   );
 }

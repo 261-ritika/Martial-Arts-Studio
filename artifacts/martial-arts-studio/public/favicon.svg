@@ -1,3 +1,7 @@
-<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Martial Arts Studio</title>
+  <rect width="64" height="64" rx="14" fill="#08131D"/>
+  <path d="M14 46V18L26.5 33L39 18V46" stroke="#59DCFF" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M40 46V32C40 25.4 44.4 21 50 21" stroke="#F2B66B" stroke-width="5" stroke-linecap="square"/>
+  <circle cx="50" cy="18" r="4" fill="#F2B66B"/>
 </svg>
