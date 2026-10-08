@@ -236,9 +236,47 @@ button { font: inherit; }
 
 .coach-section { background:linear-gradient(110deg,#0b1014,#121a1e); }
 .coach-layout { display:grid; grid-template-columns:.8fr 1.2fr; gap:9vw; align-items:center; }
-.coach-portrait { position:relative; width:min(100%,390px); aspect-ratio:.85; border:1px solid rgba(189,207,201,.18); background:#101619; display:flex; align-items:flex-end; justify-content:center; overflow:hidden; }
+..coach-portrait {
+  position:relative;
+  width:100%;
+  max-width:520px;
+  aspect-ratio:1.5;
+  border:1px solid rgba(189,207,201,.18);
+  background:#101619;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  overflow:hidden;
+}
 .coach-portrait::after { content:''; position:absolute; inset:50% 0 0; pointer-events:none; background:linear-gradient(0deg,rgba(5,9,11,.72),transparent); }
-.coach-portrait img { display:block; width:100%; height:100%; object-fit:cover; object-position:center 36%; }
+..coach-portrait img {
+  display:block;
+  width:48%;
+  height:90%;
+  object-fit:cover;
+  object-position:center;
+}
+.coach-portrait {
+  position:relative;
+  width:100%;
+  max-width:520px;
+  aspect-ratio:1.5;
+  border:1px solid rgba(189,207,201,.18);
+  background:#101619;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  overflow:hidden;
+}
+.coach-portrait img {
+  display:block;
+  width:48%;
+  height:90%;
+  object-fit:cover;
+  object-position:center;
+}
 .coach-photo-caption { position:absolute; z-index:2; bottom:17px; left:19px; color:#849191; font:8px var(--app-font-mono); letter-spacing:.12em; text-transform:uppercase; }
 .coach-copy h2 { font-size:clamp(54px,7vw,88px); }
 .coach-name { margin:20px 0 0; font:700 34px 'Barlow Condensed',sans-serif; text-transform:uppercase; }
