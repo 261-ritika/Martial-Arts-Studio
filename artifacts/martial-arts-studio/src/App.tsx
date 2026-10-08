@@ -158,7 +158,7 @@ const faqs = [
   ["What is the training time?", "Training runs from 5:00 to 6:30."],
   [
     "What is the monthly fee?",
-    "The fee is ₹1,000 per month for an individual.",
+    "Contact Coach.",
   ],
   ["Where is the studio located?", `${ADDRESS}.`],
   [
@@ -484,14 +484,12 @@ function About() {
           </p>
           <div className="about-facts" aria-label="Training time and fees">
             <div>
-              <span>Training time</span>
-              <strong>5:00–6:30</strong>
+              <span>Training time for kids</span>
+              <strong>5:00–7:00</strong>
             </div>
             <div>
-              <span>Individual fee</span>
-              <strong>
-                ₹1,000 <small>/ month</small>
-              </strong>
+              <span>Training time for adults</span>
+              <strong>7:00-9:00</strong>
             </div>
           </div>
           <div className="discipline-tags" aria-label="Training offered">
@@ -553,6 +551,15 @@ function Coach() {
             loading="lazy"
             decoding="async"
           />
+          <img
+           src="/images/coach.jpg"
+           alt="Martial Arts Studio coach"
+           width="472"
+           height="561"
+           loading="lazy"
+           decoding="async"
+         />
+        </div>
           <span className="coach-photo-caption">Coach / Instructor</span>
         </div>
         <div className="coach-copy">
