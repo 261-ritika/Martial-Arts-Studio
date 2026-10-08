@@ -559,7 +559,7 @@ function Coach() {
            loading="lazy"
            decoding="async"
          />
-        </div>
+        
           <span className="coach-photo-caption">Coach / Instructor</span>
         </div>
         <div className="coach-copy">
